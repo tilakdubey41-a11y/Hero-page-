@@ -1,448 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="color-section" id="color-transfer">
 
-    <meta
-        name="description"
-        content="Phorcysty — AI Color & Style Transfer for images and videos."
-    >
+    <div class="section-heading color-heading">
+        <div class="section-label">IMAGE → IMAGE</div>
 
-    <title>Phorcysty — AI Creative Editor</title>
+        <h2>
+            Color Transfer
+        </h2>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- ================= NAVBAR ================= -->
-
-    <header class="navbar">
-
-        <a href="#home" class="brand">
-            <div class="logo">✦</div>
-            <span>PHORCYSTY</span>
-        </a>
-
-        <nav class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#tools">Tools</a>
-            <a href="#color-transfer">Color Transfer</a>
-        </nav>
-
-        <a href="#tools" class="nav-button">
-            Try Phorcysty
-        </a>
-
-    </header>
+        <p>
+            Give your image a completely new visual mood.
+        </p>
+    </div>
 
 
-    <main>
+    <div class="comparison-wrapper">
 
-        <!-- ================= HERO ================= -->
+        <div class="comparison" id="comparison">
 
-        <section class="hero" id="home">
+            <!-- AFTER -->
+            <div class="after-image" id="afterImage">
 
-            <div class="hero-content">
+                <div class="landscape after-landscape">
 
-                <div class="eyebrow">
-                    <span></span>
-                    AI CREATIVE EDITOR
+                    <div class="sky-glow"></div>
+                    <div class="mountain mountain-back"></div>
+                    <div class="mountain mountain-front"></div>
+                    <div class="ground"></div>
+
                 </div>
 
-                <h1>
-                    Transform
-                    <br>
-                    Every Visual
-                    <br>
-                    With <span>AI</span>
-                </h1>
-
-                <p>
-                    Transfer colors, create cinematic looks,
-                    and transform images and videos with
-                    powerful AI tools.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#tools" class="primary-button">
-                        Try Phorcysty
-                        <b>✦</b>
-                    </a>
-
-                    <a href="#color-transfer" class="secondary-button">
-                        Explore Color Transfer
-                    </a>
-
+                <div class="image-label after-label">
+                    AFTER
                 </div>
 
             </div>
 
 
-            <!-- EARTH -->
+            <!-- BEFORE -->
+            <div class="before-image" id="beforeImage">
 
-            <div class="earth-area">
+                <div class="landscape before-landscape">
 
-                <div class="earth-glow"></div>
-
-                <div class="earth-wrapper">
-
-                    <div class="earth">
-
-                        <div class="earth-shine"></div>
-
-                    </div>
+                    <div class="sky-glow"></div>
+                    <div class="mountain mountain-back"></div>
+                    <div class="mountain mountain-front"></div>
+                    <div class="ground"></div>
 
                 </div>
 
-            </div>
-
-        </section>
-
-
-        <!-- ================= TOOLS ================= -->
-
-        <section class="tools-section" id="tools">
-
-            <div class="section-heading">
-
-                <div class="section-label">
-                    AI POWERED TOOLS
-                </div>
-
-                <h2>
-                    One creative space.
-                    <span>Every transformation.</span>
-                </h2>
-
-                <p>
-                    Powerful workflows for images and videos.
-                </p>
-
-            </div>
-
-
-            <div class="tool-grid">
-
-                <article class="tool-card active">
-
-                    <div class="tool-top">
-                        <div class="tool-icon">🎨</div>
-                        <span>01</span>
-                    </div>
-
-                    <h3>Image → Image</h3>
-
-                    <p>
-                        Transfer colors and visual mood
-                        from a reference image.
-                    </p>
-
-                    <a href="#color-transfer">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <article class="tool-card">
-
-                    <div class="tool-top">
-                        <div class="tool-icon">✦</div>
-                        <span>02</span>
-                    </div>
-
-                    <h3>Image → Video</h3>
-
-                    <p>
-                        Turn still images into
-                        dynamic video.
-                    </p>
-
-                    <a href="#tools">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <article class="tool-card">
-
-                    <div class="tool-top">
-                        <div class="tool-icon">◉</div>
-                        <span>03</span>
-                    </div>
-
-                    <h3>Video → Image</h3>
-
-                    <p>
-                        Extract and transform
-                        powerful video frames.
-                    </p>
-
-                    <a href="#tools">
-                        Explore →
-                    </a>
-
-                </article>
-
-
-                <article class="tool-card">
-
-                    <div class="tool-top">
-                        <div class="tool-icon">▶</div>
-                        <span>04</span>
-                    </div>
-
-                    <h3>Video → Video</h3>
-
-                    <p>
-                        Transfer colors and styles
-                        across your video.
-                    </p>
-
-                    <a href="#tools">
-                        Explore →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= COLOR TRANSFER ================= -->
-
-        <section class="color-section" id="color-transfer">
-
-            <div class="section-heading color-heading">
-
-                <div class="section-label">
-                    IMAGE → IMAGE
-                </div>
-
-                <h2>
-                    Color Transfer
-                </h2>
-
-                <p>
-                    Choose a color reference and
-                    see the transformation.
-                </p>
-
-            </div>
-
-
-            <!-- BEFORE / AFTER -->
-
-            <div class="comparison-wrapper">
-
-                <div class="comparison" id="comparison">
-
-                    <div class="after-image" id="afterImage">
-
-                        <div class="scene scene-after">
-                            <div class="mountain mountain-one"></div>
-                            <div class="mountain mountain-two"></div>
-                            <div class="sun"></div>
-                        </div>
-
-                        <span class="image-label after-label">
-                            AFTER
-                        </span>
-
-                    </div>
-
-
-                    <div class="before-image" id="beforeImage">
-
-                        <div class="scene scene-before">
-                            <div class="mountain mountain-one"></div>
-                            <div class="mountain mountain-two"></div>
-                            <div class="sun"></div>
-                        </div>
-
-                        <span class="image-label before-label">
-                            BEFORE
-                        </span>
-
-                    </div>
-
-
-                    <div class="slider-line" id="sliderLine">
-
-                        <div class="slider-handle">
-                            ↔
-                        </div>
-
-                    </div>
-
-
-                    <input
-                        id="comparisonSlider"
-                        class="comparison-slider"
-                        type="range"
-                        min="0"
-                        max="100"
-                        value="50"
-                        aria-label="Before and after comparison"
-                    >
-
-                </div>
-
-                <div class="drag-hint">
-                    Drag to compare
+                <div class="image-label before-label">
+                    BEFORE
                 </div>
 
             </div>
 
 
-            <!-- COLOR REFERENCES -->
+            <!-- SLIDER LINE -->
+            <div class="slider-line" id="sliderLine">
 
-            <div class="references">
-
-                <div class="reference-title">
-
-                    <div>
-                        <h3>Choose a color reference</h3>
-                        <p>Pick a look. Make it yours.</p>
-                    </div>
-
-                </div>
-
-
-                <div class="reference-grid">
-
-                    <button
-                        class="reference active"
-                        data-theme="purple"
-                        type="button"
-                    >
-
-                        <div class="reference-image purple-reference">
-                            <span>REFERENCE 01</span>
-                        </div>
-
-                        <div class="reference-info">
-                            <strong>Violet Mood</strong>
-                            <small>Purple · Pink · Warm</small>
-                        </div>
-
-                    </button>
-
-
-                    <button
-                        class="reference"
-                        data-theme="blue"
-                        type="button"
-                    >
-
-                        <div class="reference-image blue-reference">
-                            <span>REFERENCE 02</span>
-                        </div>
-
-                        <div class="reference-info">
-                            <strong>Ocean Blue</strong>
-                            <small>Cyan · Blue · Cool</small>
-                        </div>
-
-                    </button>
-
-
-                    <button
-                        class="reference"
-                        data-theme="warm"
-                        type="button"
-                    >
-
-                        <div class="reference-image warm-reference">
-                            <span>REFERENCE 03</span>
-                        </div>
-
-                        <div class="reference-info">
-                            <strong>Golden Hour</strong>
-                            <small>Orange · Gold · Warm</small>
-                        </div>
-
-                    </button>
-
+                <div class="slider-handle">
+                    <span>‹</span>
+                    <span>›</span>
                 </div>
 
             </div>
 
-        </section>
 
+            <!-- INVISIBLE RANGE -->
+            <input
+                id="comparisonSlider"
+                class="comparison-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="Compare before and after"
+            >
 
-        <!-- ================= WORKFLOW ================= -->
-
-        <section class="workflow">
-
-            <div class="section-heading">
-
-                <div class="section-label">
-                    SIMPLE WORKFLOW
-                </div>
-
-                <h2>
-                    Create in <span>three steps.</span>
-                </h2>
-
-            </div>
-
-
-            <div class="steps">
-
-                <div class="step">
-                    <span>01</span>
-                    <h3>Choose</h3>
-                    <p>Upload your image or video.</p>
-                </div>
-
-                <div class="step">
-                    <span>02</span>
-                    <h3>Transform</h3>
-                    <p>Choose your color or style reference.</p>
-                </div>
-
-                <div class="step">
-                    <span>03</span>
-                    <h3>Create</h3>
-                    <p>Get your transformed result.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="brand">
-            <div class="logo">✦</div>
-            <span>PHORCYSTY</span>
         </div>
 
-        <p>AI Photo & Video Magic.</p>
 
-    </footer>
+        <div class="drag-hint">
+            Drag to compare
+        </div>
+
+    </div>
 
 
-    <script src="script.js"></script>
+    <!-- COLOR REFERENCES -->
 
-</body>
-</html>
+    <div class="references">
+
+        <div class="reference-heading">
+            <div>
+                <span>COLOR REFERENCES</span>
+                <h3>Choose your look</h3>
+            </div>
+
+            <div class="reference-count">
+                03
+            </div>
+        </div>
+
+
+        <div class="reference-grid">
+
+
+            <!-- REFERENCE 01 -->
+
+            <button
+                class="reference active"
+                data-theme="purple"
+                type="button"
+            >
+
+                <div class="reference-image reference-purple">
+
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
+
+                    <span class="ref-number">01</span>
+
+                </div>
+
+                <div class="reference-info">
+
+                    <div>
+                        <strong>Violet Mood</strong>
+                        <small>Purple · Pink · Warm</small>
+                    </div>
+
+                    <span class="select-dot"></span>
+
+                </div>
+
+            </button>
+
+
+            <!-- REFERENCE 02 -->
+
+            <button
+                class="reference"
+                data-theme="blue"
+                type="button"
+            >
+
+                <div class="reference-image reference-blue">
+
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
+
+                    <span class="ref-number">02</span>
+
+                </div>
+
+                <div class="reference-info">
+
+                    <div>
+                        <strong>Ocean Blue</strong>
+                        <small>Blue · Cyan · Cool</small>
+                    </div>
+
+                    <span class="select-dot"></span>
+
+                </div>
+
+            </button>
+
+
+            <!-- REFERENCE 03 -->
+
+            <button
+                class="reference"
+                data-theme="warm"
+                type="button"
+            >
+
+                <div class="reference-image reference-warm">
+
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
+
+                    <span class="ref-number">03</span>
+
+                </div>
+
+                <div class="reference-info">
+
+                    <div>
+                        <strong>Golden Hour</strong>
+                        <small>Orange · Gold · Warm</small>
+                    </div>
+
+                    <span class="select-dot"></span>
+
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
