@@ -1,1147 +1,208 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --background: #030309;
-    --surface: rgba(255, 255, 255, 0.035);
-    --border: rgba(255, 255, 255, 0.09);
-    --text: #f7f5ff;
-    --muted: #92909f;
-    --purple: #7b45ff;
-    --pink: #d94cff;
-    --blue: #3bc7ff;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background:
-        radial-gradient(
-            circle at 80% 15%,
-            rgba(99, 48, 255, 0.12),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 10% 55%,
-            rgba(30, 140, 255, 0.06),
-            transparent 25%
-        ),
-        var(--background);
-
-    color: var(--text);
-    font-family: "Inter", sans-serif;
-    overflow-x: hidden;
-}
-
-
-/* ================= NAVBAR ================= */
-
-.navbar {
-    position: absolute;
-    z-index: 50;
-
-    top: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: min(1240px, 92%);
-    height: 68px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 20px;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    background: rgba(6, 6, 15, 0.62);
-    backdrop-filter: blur(22px);
-}
+<section class="color-section" id="color-transfer">
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    <div class="section-heading color-heading">
+        <div class="section-label">IMAGE → IMAGE</div>
 
-    color: white;
-    text-decoration: none;
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-}
+        <h2>
+            Color Transfer
+        </h2>
 
-.logo {
-    width: 38px;
-    height: 38px;
+        <p>
+            Give your image a completely new visual mood.
+        </p>
+    </div>
 
-    display: grid;
-    place-items: center;
 
-    border-radius: 11px;
+    <div class="comparison-wrapper">
 
-    background:
-        linear-gradient(
-            135deg,
-            #713aff,
-            #d946ef,
-            #31c4ff
-        );
+        <div class="comparison" id="comparison">
 
-    box-shadow:
-        0 0 25px rgba(115, 55, 255, 0.3);
-}
+            <!-- AFTER -->
+            <div class="after-image" id="afterImage">
 
-.nav-links {
-    display: flex;
-    gap: 34px;
-}
+                <div class="landscape after-landscape">
 
-.nav-links a {
-    color: #9997a7;
-    text-decoration: none;
-    font-size: 12px;
-    transition: 0.25s;
-}
+                    <div class="sky-glow"></div>
+                    <div class="mountain mountain-back"></div>
+                    <div class="mountain mountain-front"></div>
+                    <div class="ground"></div>
 
-.nav-links a:hover {
-    color: white;
-}
+                </div>
 
-.nav-button {
-    color: white;
-    text-decoration: none;
+                <div class="image-label after-label">
+                    AFTER
+                </div>
 
-    padding: 11px 17px;
+            </div>
 
-    border-radius: 11px;
 
-    border: 1px solid rgba(137, 75, 255, 0.5);
+            <!-- BEFORE -->
+            <div class="before-image" id="beforeImage">
 
-    background: rgba(112, 55, 255, 0.12);
+                <div class="landscape before-landscape">
 
-    font-size: 12px;
-    font-weight: 700;
-}
+                    <div class="sky-glow"></div>
+                    <div class="mountain mountain-back"></div>
+                    <div class="mountain mountain-front"></div>
+                    <div class="ground"></div>
 
+                </div>
 
-/* ================= HERO ================= */
+                <div class="image-label before-label">
+                    BEFORE
+                </div>
 
-.hero {
-    min-height: 880px;
+            </div>
 
-    position: relative;
 
-    display: flex;
-    align-items: center;
+            <!-- SLIDER LINE -->
+            <div class="slider-line" id="sliderLine">
 
-    padding: 150px 6% 100px;
+                <div class="slider-handle">
+                    <span>‹</span>
+                    <span>›</span>
+                </div>
 
-    overflow: hidden;
-}
+            </div>
 
-.hero-content {
-    width: 52%;
-    position: relative;
-    z-index: 10;
-}
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+            <!-- INVISIBLE RANGE -->
+            <input
+                id="comparisonSlider"
+                class="comparison-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="Compare before and after"
+            >
 
-    padding: 9px 13px;
+        </div>
 
-    border: 1px solid rgba(139, 77, 255, 0.35);
-    border-radius: 30px;
 
-    background: rgba(110, 48, 255, 0.07);
+        <div class="drag-hint">
+            Drag to compare
+        </div>
 
-    color: #b99aff;
+    </div>
 
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-}
 
-.eyebrow span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    <!-- COLOR REFERENCES -->
 
-    background: #9c5dff;
+    <div class="references">
 
-    box-shadow: 0 0 12px #9c5dff;
-}
+        <div class="reference-heading">
+            <div>
+                <span>COLOR REFERENCES</span>
+                <h3>Choose your look</h3>
+            </div>
 
-.hero h1 {
-    margin-top: 24px;
+            <div class="reference-count">
+                03
+            </div>
+        </div>
 
-    font-size: clamp(54px, 6vw, 84px);
-    line-height: 0.98;
 
-    letter-spacing: -4px;
-    font-weight: 500;
-}
+        <div class="reference-grid">
 
-.hero h1 span {
-    font-weight: 800;
 
-    background:
-        linear-gradient(
-            90deg,
-            #925cff,
-            #dd4dff,
-            #45cfff
-        );
+            <!-- REFERENCE 01 -->
 
-    -webkit-background-clip: text;
-    background-clip: text;
+            <button
+                class="reference active"
+                data-theme="purple"
+                type="button"
+            >
 
-    color: transparent;
-}
+                <div class="reference-image reference-purple">
 
-.hero-content > p {
-    max-width: 560px;
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
 
-    margin: 27px 0 30px;
+                    <span class="ref-number">01</span>
 
-    color: var(--muted);
+                </div>
 
-    font-size: 15px;
-    line-height: 1.75;
-}
+                <div class="reference-info">
 
-.hero-buttons {
-    display: flex;
-    gap: 12px;
-}
+                    <div>
+                        <strong>Violet Mood</strong>
+                        <small>Purple · Pink · Warm</small>
+                    </div>
 
-.primary-button,
-.secondary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+                    <span class="select-dot"></span>
 
-    text-decoration: none;
+                </div>
 
-    padding: 14px 20px;
+            </button>
 
-    border-radius: 12px;
 
-    font-size: 12px;
-    font-weight: 700;
-}
+            <!-- REFERENCE 02 -->
 
-.primary-button {
-    color: white;
+            <button
+                class="reference"
+                data-theme="blue"
+                type="button"
+            >
 
-    background:
-        linear-gradient(
-            100deg,
-            #6836ff,
-            #bd42df,
-            #24bdf1
-        );
+                <div class="reference-image reference-blue">
 
-    box-shadow:
-        0 15px 40px rgba(95, 43, 255, 0.25);
-}
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
 
-.secondary-button {
-    color: #d8d6e1;
+                    <span class="ref-number">02</span>
 
-    border: 1px solid var(--border);
+                </div>
 
-    background: rgba(255, 255, 255, 0.025);
-}
+                <div class="reference-info">
 
+                    <div>
+                        <strong>Ocean Blue</strong>
+                        <small>Blue · Cyan · Cool</small>
+                    </div>
 
-/* ================= EARTH ================= */
+                    <span class="select-dot"></span>
 
-.earth-area {
-    position: absolute;
+                </div>
 
-    right: -40px;
-    top: 80px;
+            </button>
 
-    width: 57%;
-    height: 720px;
 
-    display: grid;
-    place-items: center;
-}
+            <!-- REFERENCE 03 -->
 
-.earth-glow {
-    position: absolute;
+            <button
+                class="reference"
+                data-theme="warm"
+                type="button"
+            >
 
-    width: 600px;
-    height: 600px;
+                <div class="reference-image reference-warm">
 
-    border-radius: 50%;
+                    <div class="ref-sun"></div>
+                    <div class="ref-mountain"></div>
+                    <div class="ref-mountain second"></div>
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(45, 110, 255, 0.18),
-            transparent 65%
-        );
+                    <span class="ref-number">03</span>
 
-    filter: blur(30px);
-}
+                </div>
 
-.earth-wrapper {
-    width: 560px;
-    height: 560px;
+                <div class="reference-info">
 
-    display: grid;
-    place-items: center;
+                    <div>
+                        <strong>Golden Hour</strong>
+                        <small>Orange · Gold · Warm</small>
+                    </div>
 
-    transition: transform 0.15s ease-out;
-}
+                    <span class="select-dot"></span>
 
-.earth {
-    width: 530px;
-    height: 530px;
+                </div>
 
-    position: relative;
+            </button>
 
-    border-radius: 50%;
+        </div>
 
-    background-image:
-        url("https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg");
+    </div>
 
-    background-size: cover;
-    background-position: 0 50%;
-
-    box-shadow:
-        inset -65px -20px 100px rgba(0, 0, 0, 0.82),
-        inset 20px 15px 50px rgba(255, 255, 255, 0.12),
-        0 0 55px rgba(55, 140, 255, 0.25),
-        0 0 140px rgba(75, 60, 255, 0.12);
-
-    animation: earthRotate 48s linear infinite;
-}
-
-.earth::before {
-    content: "";
-
-    position: absolute;
-    inset: -9px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(80, 170, 255, 0.4);
-
-    box-shadow:
-        0 0 25px rgba(40, 150, 255, 0.25);
-}
-
-.earth-shine {
-    position: absolute;
-    inset: 0;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(255, 255, 255, 0.12),
-            transparent 28%,
-            transparent 70%,
-            rgba(0, 0, 0, 0.2)
-        );
-
-    pointer-events: none;
-}
-
-@keyframes earthRotate {
-    from {
-        background-position: 0 50%;
-    }
-
-    to {
-        background-position: 100% 50%;
-    }
-}
-
-
-/* ================= SECTION ================= */
-
-.tools-section,
-.color-section,
-.workflow {
-    padding: 100px 6%;
-}
-
-.section-heading {
-    max-width: 800px;
-    margin: 0 auto 50px;
-    text-align: center;
-}
-
-.section-label {
-    color: #a269ff;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    margin-top: 12px;
-
-    font-size: clamp(34px, 4vw, 48px);
-
-    letter-spacing: -2px;
-}
-
-.section-heading h2 span {
-    background:
-        linear-gradient(
-            90deg,
-            #9860ff,
-            #dc4fff,
-            #43caff
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.section-heading p {
-    margin-top: 12px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-/* ================= TOOLS ================= */
-
-.tool-grid {
-    max-width: 1240px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 15px;
-}
-
-.tool-card {
-    min-height: 235px;
-
-    padding: 24px;
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.012)
-        );
-
-    transition: 0.3s;
-}
-
-.tool-card:hover,
-.tool-card.active {
-    transform: translateY(-6px);
-
-    border-color:
-        rgba(137, 77, 255, 0.5);
-
-    box-shadow:
-        0 25px 60px rgba(80, 35, 170, 0.12);
-}
-
-.tool-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.tool-icon {
-    width: 44px;
-    height: 44px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 13px;
-
-    background: rgba(115, 55, 255, 0.1);
-
-    border: 1px solid rgba(137, 77, 255, 0.25);
-}
-
-.tool-top > span {
-    color: #5d5b69;
-    font-size: 11px;
-}
-
-.tool-card h3 {
-    margin-top: 22px;
-    font-size: 17px;
-}
-
-.tool-card p {
-    margin-top: 9px;
-
-    color: #878593;
-
-    font-size: 12px;
-    line-height: 1.65;
-}
-
-.tool-card a {
-    display: inline-block;
-
-    margin-top: 22px;
-
-    color: #ad8bff;
-
-    text-decoration: none;
-
-    font-size: 11px;
-    font-weight: 700;
-}
-
-
-/* ================= COLOR TRANSFER ================= */
-
-.color-section {
-    max-width: 1350px;
-    margin: auto;
-}
-
-.color-heading {
-    margin-bottom: 42px;
-}
-
-.comparison-wrapper {
-    max-width: 1080px;
-    margin: auto;
-}
-
-.comparison {
-    position: relative;
-
-    width: 100%;
-    height: 520px;
-
-    overflow: hidden;
-
-    border-radius: 25px;
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    box-shadow:
-        0 30px 100px rgba(0, 0, 0, 0.45);
-
-    background: #15151c;
-}
-
-
-/* AFTER */
-
-.after-image {
-    position: absolute;
-    inset: 0;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            130deg,
-            #5b35c8,
-            #d849b6,
-            #ff8c45
-        );
-}
-
-.scene {
-    position: absolute;
-    inset: 0;
-}
-
-.scene::before {
-    content: "";
-
-    position: absolute;
-
-    width: 120%;
-    height: 65%;
-
-    left: -10%;
-    bottom: -10%;
-
-    border-radius: 50% 50% 0 0;
-
-    transform: rotate(-4deg);
-}
-
-.scene-before::before {
-    background:
-        linear-gradient(
-            160deg,
-            #52606c,
-            #39434d
-        );
-}
-
-.scene-after::before {
-    background:
-        linear-gradient(
-            160deg,
-            #7440ad,
-            #3b235f
-        );
-}
-
-.mountain {
-    position: absolute;
-
-    bottom: 0;
-
-    width: 65%;
-    height: 55%;
-
-    clip-path: polygon(
-        0 100%,
-        50% 0,
-        100% 100%
-    );
-}
-
-.mountain-one {
-    left: -5%;
-
-    background:
-        linear-gradient(
-            150deg,
-            #1c2630,
-            #4c5a66
-        );
-}
-
-.scene-after .mountain-one {
-    background:
-        linear-gradient(
-            150deg,
-            #27163e,
-            #704a9e
-        );
-}
-
-.mountain-two {
-    right: -8%;
-
-    width: 70%;
-    height: 48%;
-
-    background:
-        linear-gradient(
-            150deg,
-            #29343e,
-            #606d75
-        );
-}
-
-.scene-after .mountain-two {
-    background:
-        linear-gradient(
-            150deg,
-            #3b2259,
-            #9c5a96
-        );
-}
-
-.sun {
-    position: absolute;
-
-    top: 22%;
-    right: 22%;
-
-    width: 90px;
-    height: 90px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 190, 100, 0.9);
-
-    filter: blur(2px);
-
-    box-shadow:
-        0 0 80px rgba(255, 170, 70, 0.6);
-}
-
-
-/* BEFORE */
-
-.before-image {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 50%;
-
-    overflow: hidden;
-
-    z-index: 5;
-
-    background: #555;
-}
-
-
-/* LABELS */
-
-.image-label {
-    position: absolute;
-
-    top: 18px;
-
-    z-index: 10;
-
-    padding: 8px 11px;
-
-    border-radius: 8px;
-
-    background: rgba(0, 0, 0, 0.48);
-
-    backdrop-filter: blur(10px);
-
-    color: white;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-.before-label {
-    left: 18px;
-}
-
-.after-label {
-    right: 18px;
-}
-
-
-/* SLIDER */
-
-.slider-line {
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 50%;
-
-    width: 2px;
-
-    z-index: 15;
-
-    background: white;
-
-    transform: translateX(-1px);
-
-    box-shadow:
-        0 0 18px rgba(255, 255, 255, 0.7);
-
-    pointer-events: none;
-}
-
-.slider-handle {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 48px;
-    height: 48px;
-
-    display: grid;
-    place-items: center;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background: white;
-
-    color: #161620;
-
-    font-size: 18px;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.35);
-}
-
-.comparison-slider {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    margin: 0;
-
-    opacity: 0;
-
-    cursor: ew-resize;
-
-    z-index: 20;
-}
-
-.drag-hint {
-    text-align: center;
-
-    margin-top: 13px;
-
-    color: #777583;
-
-    font-size: 11px;
-}
-
-
-/* ================= REFERENCES ================= */
-
-.references {
-    max-width: 1080px;
-
-    margin: 55px auto 0;
-}
-
-.reference-title {
-    margin-bottom: 18px;
-}
-
-.reference-title h3 {
-    font-size: 17px;
-}
-
-.reference-title p {
-    margin-top: 6px;
-
-    color: #858390;
-
-    font-size: 12px;
-}
-
-.reference-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.reference {
-    padding: 8px;
-
-    text-align: left;
-
-    border: 1px solid var(--border);
-    border-radius: 17px;
-
-    background: rgba(255, 255, 255, 0.02);
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.reference:hover {
-    transform: translateY(-4px);
-}
-
-.reference.active {
-    border-color:
-        rgba(143, 78, 255, 0.75);
-
-    box-shadow:
-        0 0 30px rgba(113, 55, 255, 0.12);
-}
-
-.reference-image {
-    height: 150px;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    padding: 12px;
-
-    border-radius: 11px;
-
-    overflow: hidden;
-}
-
-.reference-image span {
-    padding: 6px 8px;
-
-    border-radius: 6px;
-
-    background: rgba(0, 0, 0, 0.35);
-
-    color: white;
-
-    font-size: 8px;
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-.purple-reference {
-    background:
-        linear-gradient(
-            135deg,
-            #21155c,
-            #7842b7,
-            #df4e9b,
-            #ff914e
-        );
-}
-
-.blue-reference {
-    background:
-        linear-gradient(
-            135deg,
-            #052b4a,
-            #087eaa,
-            #43c9dd,
-            #b2e5ed
-        );
-}
-
-.warm-reference {
-    background:
-        linear-gradient(
-            135deg,
-            #592313,
-            #bd5a27,
-            #f09a43,
-            #ffd77a
-        );
-}
-
-.reference-info {
-    padding: 9px 5px 6px;
-}
-
-.reference-info strong {
-    display: block;
-
-    color: #d2d0da;
-
-    font-size: 12px;
-}
-
-.reference-info small {
-    display: block;
-
-    margin-top: 4px;
-
-    color: #777582;
-
-    font-size: 10px;
-}
-
-
-/* ================= WORKFLOW ================= */
-
-.steps {
-    max-width: 1050px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.step {
-    padding: 28px;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.025);
-}
-
-.step > span {
-    color: #8554ff;
-
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.step h3 {
-    margin-top: 25px;
-
-    font-size: 18px;
-}
-
-.step p {
-    margin-top: 8px;
-
-    color: #858390;
-
-    font-size: 12px;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer {
-    padding: 35px 6%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-footer p {
-    color: #777583;
-
-    font-size: 11px;
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1050px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        min-height: 950px;
-    }
-
-    .hero-content {
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero-content > p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .earth-area {
-        top: 500px;
-        right: 0;
-
-        width: 100%;
-        height: 470px;
-    }
-
-    .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-@media (max-width: 650px) {
-
-    .navbar {
-        top: 12px;
-        height: 60px;
-    }
-
-    .nav-button {
-        padding: 9px 12px;
-        font-size: 10px;
-    }
-
-    .brand {
-        font-size: 16px;
-    }
-
-    .hero {
-        min-height: 850px;
-        padding: 125px 20px 40px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-        letter-spacing: -2.5px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .primary-button,
-    .secondary-button {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .earth-area {
-        top: 510px;
-    }
-
-    .earth-wrapper {
-        width: 360px;
-        height: 360px;
-    }
-
-    .earth {
-        width: 330px;
-        height: 330px;
-    }
-
-    .tools-section,
-    .color-section,
-    .workflow {
-        padding: 75px 20px;
-    }
-
-    .tool-grid,
-    .reference-grid,
-    .steps {
-        grid-template-columns: 1fr;
-    }
-
-    .comparison {
-        height: 340px;
-    }
-
-    .reference-image {
-        height: 180px;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
+</section>
