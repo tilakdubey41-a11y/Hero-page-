@@ -1,208 +1,1047 @@
-<section class="color-section" id="color-transfer">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #050509;
+    --panel: rgba(16, 14, 27, 0.78);
+    --purple: #7c3cff;
+    --pink: #d83cff;
+    --blue: #3c8cff;
+    --text: #ffffff;
+    --muted: #9d9ba8;
+    --border: rgba(255,255,255,0.09);
+}
 
-    <div class="section-heading color-heading">
-        <div class="section-label">IMAGE → IMAGE</div>
+html {
+    scroll-behavior: smooth;
+}
 
-        <h2>
-            Color Transfer
-        </h2>
+body {
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(100, 40, 255, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 70%,
+            rgba(20, 100, 255, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
 
-        <p>
-            Give your image a completely new visual mood.
-        </p>
-    </div>
+    color: var(--text);
 
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-    <div class="comparison-wrapper">
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-        <div class="comparison" id="comparison">
 
-            <!-- AFTER -->
-            <div class="after-image" id="afterImage">
+/* ================= NAVBAR ================= */
 
-                <div class="landscape after-landscape">
+.navbar {
+    position: relative;
 
-                    <div class="sky-glow"></div>
-                    <div class="mountain mountain-back"></div>
-                    <div class="mountain mountain-front"></div>
-                    <div class="ground"></div>
+    width: min(1320px, calc(100% - 70px));
+    margin: 24px auto 0;
 
-                </div>
+    height: 72px;
 
-                <div class="image-label after-label">
-                    AFTER
-                </div>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            </div>
+    padding: 0 22px;
 
+    border: 1px solid var(--border);
+    border-radius: 40px;
 
-            <!-- BEFORE -->
-            <div class="before-image" id="beforeImage">
+    background: rgba(7, 7, 12, 0.65);
 
-                <div class="landscape before-landscape">
+    backdrop-filter: blur(22px);
 
-                    <div class="sky-glow"></div>
-                    <div class="mountain mountain-back"></div>
-                    <div class="mountain mountain-front"></div>
-                    <div class="ground"></div>
+    z-index: 50;
+}
 
-                </div>
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
 
-                <div class="image-label before-label">
-                    BEFORE
-                </div>
+    color: white;
+    text-decoration: none;
 
-            </div>
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
 
+.logo-mark {
+    width: 32px;
+    height: 32px;
 
-            <!-- SLIDER LINE -->
-            <div class="slider-line" id="sliderLine">
+    display: grid;
+    place-items: center;
 
-                <div class="slider-handle">
-                    <span>‹</span>
-                    <span>›</span>
-                </div>
+    color: #9a5cff;
 
-            </div>
+    border: 1px solid rgba(140,80,255,0.5);
+    border-radius: 9px;
 
+    box-shadow:
+        0 0 25px rgba(120,50,255,0.3);
+}
 
-            <!-- INVISIBLE RANGE -->
-            <input
-                id="comparisonSlider"
-                class="comparison-slider"
-                type="range"
-                min="0"
-                max="100"
-                value="50"
-                aria-label="Compare before and after"
-            >
+.navbar nav {
+    display: flex;
+    gap: 36px;
+}
 
-        </div>
+.navbar nav a {
+    color: #aaa7b2;
+    text-decoration: none;
 
+    font-size: 14px;
+    font-weight: 600;
 
-        <div class="drag-hint">
-            Drag to compare
-        </div>
+    transition: 0.25s ease;
+}
 
-    </div>
+.navbar nav a:hover {
+    color: white;
+}
 
+.nav-button {
+    text-decoration: none;
+    color: white;
 
-    <!-- COLOR REFERENCES -->
+    padding: 13px 21px;
 
-    <div class="references">
+    border-radius: 28px;
 
-        <div class="reference-heading">
-            <div>
-                <span>COLOR REFERENCES</span>
-                <h3>Choose your look</h3>
-            </div>
+    border: 1px solid rgba(170,90,255,0.6);
 
-            <div class="reference-count">
-                03
-            </div>
-        </div>
+    background:
+        linear-gradient(
+            100deg,
+            rgba(105,45,255,0.25),
+            rgba(40,110,255,0.2)
+        );
 
+    box-shadow:
+        0 0 25px rgba(100,50,255,0.15);
+}
 
-        <div class="reference-grid">
+.nav-button span {
+    color: #b66cff;
+}
 
 
-            <!-- REFERENCE 01 -->
+/* ================= HERO ================= */
 
-            <button
-                class="reference active"
-                data-theme="purple"
-                type="button"
-            >
+.hero {
+    position: relative;
 
-                <div class="reference-image reference-purple">
+    width: min(1320px, calc(100% - 70px));
 
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
+    min-height: 850px;
 
-                    <span class="ref-number">01</span>
+    margin: 0 auto;
 
-                </div>
+    display: grid;
 
-                <div class="reference-info">
+    grid-template-columns: 0.8fr 1.2fr;
 
-                    <div>
-                        <strong>Violet Mood</strong>
-                        <small>Purple · Pink · Warm</small>
-                    </div>
+    align-items: center;
 
-                    <span class="select-dot"></span>
+    gap: 40px;
+}
 
-                </div>
+.hero-glow {
+    position: absolute;
 
-            </button>
+    border-radius: 50%;
 
+    pointer-events: none;
 
-            <!-- REFERENCE 02 -->
+    filter: blur(100px);
+}
 
-            <button
-                class="reference"
-                data-theme="blue"
-                type="button"
-            >
+.glow-one {
+    width: 500px;
+    height: 500px;
 
-                <div class="reference-image reference-blue">
+    right: 8%;
+    top: 8%;
 
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
+    background: rgba(102,45,255,0.12);
+}
 
-                    <span class="ref-number">02</span>
+.glow-two {
+    width: 350px;
+    height: 350px;
 
-                </div>
+    left: 0;
+    bottom: 5%;
 
-                <div class="reference-info">
+    background: rgba(0,90,255,0.07);
+}
 
-                    <div>
-                        <strong>Ocean Blue</strong>
-                        <small>Blue · Cyan · Cool</small>
-                    </div>
 
-                    <span class="select-dot"></span>
+/* ================= HERO CONTENT ================= */
 
-                </div>
+.hero-content {
+    position: relative;
+    z-index: 3;
 
-            </button>
+    padding-bottom: 60px;
+}
 
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-            <!-- REFERENCE 03 -->
+    padding: 10px 16px;
 
-            <button
-                class="reference"
-                data-theme="warm"
-                type="button"
-            >
+    border-radius: 30px;
 
-                <div class="reference-image reference-warm">
+    border: 1px solid rgba(150,80,255,0.35);
 
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
+    background: rgba(100,40,255,0.08);
 
-                    <span class="ref-number">03</span>
+    color: #b88aff;
 
-                </div>
+    font-size: 11px;
+    font-weight: 700;
 
-                <div class="reference-info">
+    letter-spacing: 1px;
+}
 
-                    <div>
-                        <strong>Golden Hour</strong>
-                        <small>Orange · Gold · Warm</small>
-                    </div>
+.eyebrow span {
+    color: #d46cff;
+}
 
-                    <span class="select-dot"></span>
+h1 {
+    margin-top: 25px;
 
-                </div>
+    font-size: clamp(52px, 5.5vw, 82px);
 
-            </button>
+    line-height: 0.99;
 
-        </div>
+    letter-spacing: -4px;
 
-    </div>
+    font-weight: 800;
+}
 
-</section>
+h1 span {
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 10%,
+            #a875ff 45%,
+            #d74cff 75%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero-content p {
+    max-width: 530px;
+
+    margin-top: 27px;
+
+    color: #a5a2ad;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.primary-button,
+.secondary-button {
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    height: 54px;
+
+    padding: 0 23px;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+}
+
+.primary-button {
+    color: white;
+
+    background:
+        linear-gradient(
+            100deg,
+            #6635ff,
+            #cf38db
+        );
+
+    box-shadow:
+        0 12px 35px rgba(110,40,255,0.3);
+}
+
+.primary-button span {
+    font-size: 20px;
+}
+
+.secondary-button {
+    color: #e5e2ea;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.035);
+}
+
+.play {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(180,100,255,0.5);
+
+    font-size: 10px;
+}
+
+
+/* ================= VISUAL STAGE ================= */
+
+.visual-stage {
+    position: relative;
+
+    padding-top: 40px;
+}
+
+.comparison-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 760px;
+
+    aspect-ratio: 1.25 / 1;
+
+    margin-left: auto;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(170,100,255,0.25);
+
+    background: #0d0d15;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,0.6),
+        0 0 80px rgba(100,40,255,0.12);
+
+    transform:
+        perspective(1300px)
+        rotateY(-4deg)
+        rotateX(2deg);
+
+    transition: transform 0.5s ease;
+}
+
+.comparison-card:hover {
+    transform:
+        perspective(1300px)
+        rotateY(-1deg)
+        rotateX(0deg)
+        translateY(-5px);
+}
+
+.image-layer {
+    position: absolute;
+
+    inset: 0;
+}
+
+.image-layer img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.before-layer {
+    width: 50%;
+
+    overflow: hidden;
+
+    z-index: 4;
+}
+
+.before-layer img {
+    width: 100%;
+    max-width: none;
+}
+
+.image-label {
+    position: absolute;
+
+    top: 20px;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    backdrop-filter: blur(12px);
+
+    background: rgba(0,0,0,0.55);
+}
+
+.before-label {
+    left: 20px;
+}
+
+.after-label {
+    right: 20px;
+}
+
+
+/* ================= SLIDER ================= */
+
+.comparison-line {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 2px;
+    height: 100%;
+
+    background: white;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.8);
+}
+
+.slider-handle {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7a42ff,
+            #c842db
+        );
+
+    border: 3px solid rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 0 35px rgba(130,50,255,0.7);
+}
+
+.slider-handle span {
+    font-size: 20px;
+}
+
+#comparisonSlider {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    cursor: ew-resize;
+
+    z-index: 20;
+}
+
+
+/* ================= FLOATING LABELS ================= */
+
+.floating-label {
+    position: absolute;
+
+    z-index: 15;
+
+    padding: 12px 17px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(150,90,255,0.3);
+
+    background: rgba(10,8,18,0.72);
+
+    backdrop-filter: blur(16px);
+
+    color: #ddd8e6;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.3);
+}
+
+.floating-label span {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: #9c5cff;
+
+    box-shadow:
+        0 0 10px #9c5cff;
+}
+
+.label-top {
+    top: 5px;
+    left: 20px;
+}
+
+.label-right {
+    right: -15px;
+    bottom: 170px;
+}
+
+
+/* ================= DRAG ================= */
+
+.drag-text {
+    text-align: center;
+
+    margin-top: 14px;
+
+    color: #7e7b88;
+
+    font-size: 11px;
+}
+
+.drag-text span {
+    color: #a765ff;
+
+    margin-right: 5px;
+}
+
+
+/* ================= REFERENCES ================= */
+
+.reference-area {
+    margin-top: 25px;
+}
+
+.reference-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.reference-title span {
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #aaa4b7;
+}
+
+.reference-title small {
+    color: #6f6c77;
+
+    font-size: 10px;
+}
+
+.reference-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.reference {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    padding: 8px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    background: rgba(255,255,255,0.025);
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.reference:hover {
+    transform:
+        translateY(-8px)
+        scale(1.035);
+
+    border-color:
+        rgba(155,85,255,0.65);
+
+    background:
+        rgba(120,60,255,0.09);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.4),
+        0 0 25px rgba(120,50,255,0.12);
+}
+
+.reference.active {
+    border-color:
+        rgba(160,90,255,0.8);
+
+    background:
+        rgba(110,50,255,0.1);
+
+    box-shadow:
+        0 0 25px rgba(120,50,255,0.15);
+}
+
+.reference-image {
+    position: relative;
+
+    width: 68px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+}
+
+.reference-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.reference:hover img {
+    transform: scale(1.13);
+}
+
+.reference-check {
+    position: absolute;
+
+    right: 4px;
+    bottom: 4px;
+
+    width: 17px;
+    height: 17px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #874cff;
+
+    color: white;
+
+    font-size: 9px;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition: 0.25s ease;
+}
+
+.reference.active .reference-check {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.reference-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.reference-info strong {
+    font-size: 11px;
+}
+
+.reference-info span {
+    color: #74717d;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+
+/* ================= TOOLS ================= */
+
+.tools-section {
+    width: min(1320px, calc(100% - 70px));
+
+    margin: 100px auto;
+
+    padding-top: 80px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+}
+
+.section-kicker {
+    color: #9c64ff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+.section-heading h2,
+.showcase-section h2 {
+    margin-top: 12px;
+
+    font-size: clamp(36px, 4vw, 58px);
+
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span,
+.showcase-section h2 span {
+    color: #8f68ff;
+}
+
+.section-heading p {
+    max-width: 360px;
+
+    color: #777480;
+
+    line-height: 1.6;
+}
+
+
+.tool-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.tool-card {
+    position: relative;
+
+    padding: 25px;
+
+    min-height: 220px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.tool-card:hover,
+.tool-card.active {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(140,80,255,0.5);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(120,50,255,0.12),
+            rgba(255,255,255,0.02)
+        );
+}
+
+.tool-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 35px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(140,80,255,0.4);
+
+    background:
+        rgba(100,40,255,0.08);
+
+    color: #a66cff;
+
+    font-size: 22px;
+}
+
+.tool-type {
+    color: #8c8499;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+}
+
+.tool-card h3 {
+    margin-top: 8px;
+
+    font-size: 19px;
+}
+
+.tool-card p {
+    margin-top: 8px;
+
+    color: #77737f;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.tool-arrow {
+    position: absolute;
+
+    top: 24px;
+    right: 24px;
+
+    color: #625b6d;
+}
+
+
+/* ================= SHOWCASE ================= */
+
+.showcase-section {
+    width: min(1000px, calc(100% - 70px));
+
+    margin: 160px auto 180px;
+
+    text-align: center;
+}
+
+.showcase-section p {
+    max-width: 550px;
+
+    margin: 20px auto;
+
+    color: #777480;
+
+    line-height: 1.7;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 80px;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        padding-bottom: 0;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .visual-stage {
+        max-width: 850px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .tool-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .navbar {
+        width: calc(100% - 25px);
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero,
+    .tools-section {
+        width: calc(100% - 30px);
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .reference-list {
+        grid-template-columns: 1fr;
+    }
+
+    .reference {
+        width: 100%;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .comparison-card {
+        border-radius: 20px;
+    }
+
+    .label-right {
+        right: 0;
+    }
+
+}
