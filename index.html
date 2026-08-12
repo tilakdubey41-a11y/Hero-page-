@@ -1,33 +1,112 @@
-<section class="color-section" id="color-transfer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="section-heading color-heading">
-        <div class="section-label">IMAGE → IMAGE</div>
+    <title>Phorcysty — AI Visual Transformation</title>
 
-        <h2>
-            Color Transfer
-        </h2>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#" class="logo">
+        <span class="logo-mark">✦</span>
+        PHORCYSTY
+    </a>
+
+    <nav>
+        <a href="#tools">Tools</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <a href="#showcase" class="nav-button">
+        Try Phorcysty <span>✦</span>
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span>✦</span>
+            AI VISUAL TRANSFORMATION
+        </div>
+
+        <h1>
+            Transform Your
+            <br>
+            <span>Images & Videos</span>
+            <br>
+            With AI
+        </h1>
 
         <p>
-            Give your image a completely new visual mood.
+            Transfer colors, create cinematic looks,
+            enhance images and transform videos with
+            powerful AI tools.
         </p>
+
+        <div class="hero-buttons">
+
+            <a href="#showcase" class="primary-button">
+                Start Creating
+                <span>→</span>
+            </a>
+
+            <a href="#how" class="secondary-button">
+                <span class="play">▶</span>
+                See How It Works
+            </a>
+
+        </div>
+
     </div>
 
 
-    <div class="comparison-wrapper">
+    <!-- ================= TRANSFORMATION STAGE ================= -->
 
-        <div class="comparison" id="comparison">
+    <div class="visual-stage">
 
-            <!-- AFTER -->
-            <div class="after-image" id="afterImage">
+        <div class="floating-label label-top">
+            <span></span>
+            AI COLOR TRANSFER
+        </div>
 
-                <div class="landscape after-landscape">
+        <div class="floating-label label-right">
+            <span></span>
+            CINEMATIC LOOK
+        </div>
 
-                    <div class="sky-glow"></div>
-                    <div class="mountain mountain-back"></div>
-                    <div class="mountain mountain-front"></div>
-                    <div class="ground"></div>
 
-                </div>
+        <div class="comparison-card" id="comparisonCard">
+
+            <!-- AFTER IMAGE -->
+
+            <div class="image-layer after-layer">
+
+                <img
+                    id="afterImage"
+                    src="assets/after-purple.jpg"
+                    alt="After transformation"
+                >
 
                 <div class="image-label after-label">
                     AFTER
@@ -36,17 +115,17 @@
             </div>
 
 
-            <!-- BEFORE -->
-            <div class="before-image" id="beforeImage">
+            <!-- BEFORE IMAGE -->
 
-                <div class="landscape before-landscape">
+            <div
+                class="image-layer before-layer"
+                id="beforeLayer"
+            >
 
-                    <div class="sky-glow"></div>
-                    <div class="mountain mountain-back"></div>
-                    <div class="mountain mountain-front"></div>
-                    <div class="ground"></div>
-
-                </div>
+                <img
+                    src="assets/before.jpg"
+                    alt="Before transformation"
+                >
 
                 <div class="image-label before-label">
                     BEFORE
@@ -55,8 +134,12 @@
             </div>
 
 
-            <!-- SLIDER LINE -->
-            <div class="slider-line" id="sliderLine">
+            <!-- SLIDER -->
+
+            <div
+                class="comparison-line"
+                id="comparisonLine"
+            >
 
                 <div class="slider-handle">
                     <span>‹</span>
@@ -66,143 +149,274 @@
             </div>
 
 
-            <!-- INVISIBLE RANGE -->
             <input
-                id="comparisonSlider"
-                class="comparison-slider"
                 type="range"
                 min="0"
                 max="100"
                 value="50"
-                aria-label="Compare before and after"
+                id="comparisonSlider"
+                aria-label="Before and after comparison"
             >
 
         </div>
 
 
-        <div class="drag-hint">
+        <div class="drag-text">
+            <span>↔</span>
             Drag to compare
         </div>
 
-    </div>
 
+        <!-- ================= COLOR REFERENCES ================= -->
 
-    <!-- COLOR REFERENCES -->
+        <div class="reference-area">
 
-    <div class="references">
-
-        <div class="reference-heading">
-            <div>
+            <div class="reference-title">
                 <span>COLOR REFERENCES</span>
-                <h3>Choose your look</h3>
+                <small>Choose a visual direction</small>
             </div>
 
-            <div class="reference-count">
-                03
+
+            <div class="reference-list">
+
+
+                <!-- REFERENCE 1 -->
+
+                <button
+                    class="reference active"
+                    data-after="assets/after-purple.jpg"
+                    data-theme="purple"
+                >
+
+                    <div class="reference-image">
+
+                        <img
+                            src="assets/reference-train.jpg"
+                            alt="Purple cinematic reference"
+                        >
+
+                        <div class="reference-check">
+                            ✓
+                        </div>
+
+                    </div>
+
+                    <div class="reference-info">
+                        <strong>Cinematic</strong>
+                        <span>Purple / Sunset</span>
+                    </div>
+
+                </button>
+
+
+                <!-- REFERENCE 2 -->
+
+                <button
+                    class="reference"
+                    data-after="assets/after-blue.jpg"
+                    data-theme="blue"
+                >
+
+                    <div class="reference-image">
+
+                        <img
+                            src="assets/reference-colorful.jpg"
+                            alt="Blue color reference"
+                        >
+
+                        <div class="reference-check">
+                            ✓
+                        </div>
+
+                    </div>
+
+                    <div class="reference-info">
+                        <strong>Vibrant</strong>
+                        <span>Blue / Teal</span>
+                    </div>
+
+                </button>
+
+
+                <!-- REFERENCE 3 -->
+
+                <button
+                    class="reference"
+                    data-after="assets/after-warm.jpg"
+                    data-theme="warm"
+                >
+
+                    <div class="reference-image">
+
+                        <img
+                            src="assets/reference-warm.jpg"
+                            alt="Warm color reference"
+                        >
+
+                        <div class="reference-check">
+                            ✓
+                        </div>
+
+                    </div>
+
+                    <div class="reference-info">
+                        <strong>Warm</strong>
+                        <span>Orange / Gold</span>
+                    </div>
+
+                </button>
+
             </div>
-        </div>
-
-
-        <div class="reference-grid">
-
-
-            <!-- REFERENCE 01 -->
-
-            <button
-                class="reference active"
-                data-theme="purple"
-                type="button"
-            >
-
-                <div class="reference-image reference-purple">
-
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
-
-                    <span class="ref-number">01</span>
-
-                </div>
-
-                <div class="reference-info">
-
-                    <div>
-                        <strong>Violet Mood</strong>
-                        <small>Purple · Pink · Warm</small>
-                    </div>
-
-                    <span class="select-dot"></span>
-
-                </div>
-
-            </button>
-
-
-            <!-- REFERENCE 02 -->
-
-            <button
-                class="reference"
-                data-theme="blue"
-                type="button"
-            >
-
-                <div class="reference-image reference-blue">
-
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
-
-                    <span class="ref-number">02</span>
-
-                </div>
-
-                <div class="reference-info">
-
-                    <div>
-                        <strong>Ocean Blue</strong>
-                        <small>Blue · Cyan · Cool</small>
-                    </div>
-
-                    <span class="select-dot"></span>
-
-                </div>
-
-            </button>
-
-
-            <!-- REFERENCE 03 -->
-
-            <button
-                class="reference"
-                data-theme="warm"
-                type="button"
-            >
-
-                <div class="reference-image reference-warm">
-
-                    <div class="ref-sun"></div>
-                    <div class="ref-mountain"></div>
-                    <div class="ref-mountain second"></div>
-
-                    <span class="ref-number">03</span>
-
-                </div>
-
-                <div class="reference-info">
-
-                    <div>
-                        <strong>Golden Hour</strong>
-                        <small>Orange · Gold · Warm</small>
-                    </div>
-
-                    <span class="select-dot"></span>
-
-                </div>
-
-            </button>
 
         </div>
 
     </div>
 
 </section>
+
+
+<!-- ================= TOOLS ================= -->
+
+<section class="tools-section" id="tools">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">POWERFUL AI WORKFLOWS</span>
+
+            <h2>
+                One studio.
+                <span>Every transformation.</span>
+            </h2>
+        </div>
+
+        <p>
+            Create, transform and enhance your
+            visuals without complicated workflows.
+        </p>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+
+        <div class="tool-card active">
+
+            <div class="tool-icon">◈</div>
+
+            <div>
+                <span class="tool-type">
+                    IMAGE → IMAGE
+                </span>
+
+                <h3>Color Transfer</h3>
+
+                <p>
+                    Transfer the color mood of
+                    any reference image.
+                </p>
+            </div>
+
+            <span class="tool-arrow">↗</span>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">◇</div>
+
+            <div>
+                <span class="tool-type">
+                    IMAGE → VIDEO
+                </span>
+
+                <h3>Image to Video</h3>
+
+                <p>
+                    Turn still visuals into
+                    dynamic AI video.
+                </p>
+            </div>
+
+            <span class="tool-arrow">↗</span>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">◉</div>
+
+            <div>
+                <span class="tool-type">
+                    VIDEO → IMAGE
+                </span>
+
+                <h3>Video to Image</h3>
+
+                <p>
+                    Extract and enhance
+                    cinematic frames.
+                </p>
+            </div>
+
+            <span class="tool-arrow">↗</span>
+
+        </div>
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">✦</div>
+
+            <div>
+                <span class="tool-type">
+                    VIDEO → VIDEO
+                </span>
+
+                <h3>Video Transformation</h3>
+
+                <p>
+                    Apply AI looks and
+                    enhancements to video.
+                </p>
+            </div>
+
+            <span class="tool-arrow">↗</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SIMPLE SHOWCASE ================= -->
+
+<section class="showcase-section" id="showcase">
+
+    <span class="section-kicker">
+        BUILT FOR CREATORS
+    </span>
+
+    <h2>
+        Your visual.
+        <span>Your style.</span>
+    </h2>
+
+    <p>
+        Phorcysty gives you the tools to
+        create the look you imagine.
+    </p>
+
+</section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
