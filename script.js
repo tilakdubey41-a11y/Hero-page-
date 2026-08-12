@@ -1,45 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
-       BEFORE / AFTER
+       BEFORE / AFTER SLIDER
     ========================================== */
 
     const slider =
         document.getElementById("comparisonSlider");
 
-    const beforeImage =
-        document.getElementById("beforeImage");
+    const beforeLayer =
+        document.getElementById("beforeLayer");
 
-    const sliderLine =
-        document.getElementById("sliderLine");
-
-
-    if (slider && beforeImage && sliderLine) {
-
-        function updateComparison() {
-
-            const value =
-                Number(slider.value);
-
-            beforeImage.style.width =
-                value + "%";
-
-            sliderLine.style.left =
-                value + "%";
-        }
+    const comparisonLine =
+        document.getElementById("comparisonLine");
 
 
-        updateComparison();
+    function updateComparison() {
 
-        slider.addEventListener(
-            "input",
-            updateComparison
-        );
+        const value = Number(slider.value);
+
+        beforeLayer.style.width = `${value}%`;
+
+        comparisonLine.style.left = `${value}%`;
     }
 
 
+    slider.addEventListener(
+        "input",
+        updateComparison
+    );
+
+    updateComparison();
+
+
     /* ==========================================
-       COLOR REFERENCES
+       COLOR REFERENCE IMAGES
     ========================================== */
 
     const references =
@@ -49,49 +43,129 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("afterImage");
 
 
-    references.forEach((reference) => {
+    references.forEach(reference => {
+
+        reference.addEventListener("click", () => {
+
+            /* Remove active state */
+
+            references.forEach(item => {
+                item.classList.remove("active");
+            });
+
+
+            /* Activate clicked reference */
+
+            reference.classList.add("active");
+
+
+            /* Get selected output image */
+
+            const newImage =
+                reference.dataset.after;
+
+
+            /*
+                Change AFTER image
+            */
+
+            if (newImage) {
+
+                afterImage.style.opacity = "0";
+
+
+                setTimeout(() => {
+
+                    afterImage.src = newImage;
+
+                    afterImage.style.opacity = "1";
+
+                }, 180);
+
+            }
+
+
+            /*
+                Small visual movement
+                when reference changes
+            */
+
+            afterImage.style.transform =
+                "scale(1.035)";
+
+
+            setTimeout(() => {
+
+                afterImage.style.transform =
+                    "scale(1)";
+
+            }, 500);
+
+        });
+
+    });
+
+
+    /* ==========================================
+       REFERENCE IMAGE HOVER PARALLAX
+    ========================================== */
+
+    references.forEach(reference => {
+
+        const image =
+            reference.querySelector("img");
+
 
         reference.addEventListener(
-            "click",
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    reference.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateY =
+                    ((x - centerX) / centerX) * 7;
+
+
+                const rotateX =
+                    -((y - centerY) / centerY) * 7;
+
+
+                image.style.transform =
+                    `
+                    scale(1.12)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    `;
+            }
+        );
+
+
+        reference.addEventListener(
+            "mouseleave",
             () => {
 
-                references.forEach((item) => {
-
-                    item.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                reference.classList.add(
-                    "active"
-                );
-
-
-                const theme =
-                    reference.dataset.theme;
-
-
-                if (theme === "purple") {
-
-                    afterImage.style.background =
-                        "linear-gradient(135deg, #392080, #a83c9b 50%, #ff9850)";
-                }
-
-
-                if (theme === "blue") {
-
-                    afterImage.style.background =
-                        "linear-gradient(135deg, #063c62, #087fa8 50%, #48cddd)";
-                }
-
-
-                if (theme === "warm") {
-
-                    afterImage.style.background =
-                        "linear-gradient(135deg, #592313, #b95b27 50%, #ffd77a)";
-                }
+                image.style.transform =
+                    "scale(1) rotateX(0) rotateY(0)";
 
             }
         );
@@ -100,20 +174,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================================
-       TOOL CARDS
+       TOOL CARD INTERACTION
     ========================================== */
 
     const cards =
         document.querySelectorAll(".tool-card");
 
 
-    cards.forEach((card) => {
+    cards.forEach(card => {
 
         card.addEventListener(
             "click",
             () => {
 
-                cards.forEach((item) => {
+                cards.forEach(item => {
 
                     item.classList.remove(
                         "active"
@@ -121,9 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 });
 
-                card.classList.add(
-                    "active"
-                );
+
+                card.classList.add("active");
 
             }
         );
@@ -132,62 +205,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================================
-       EARTH PARALLAX
+       HERO 3D PARALLAX
     ========================================== */
 
-    const earthWrapper =
-        document.querySelector(".earth-wrapper");
+    const visualStage =
+        document.querySelector(".visual-stage");
 
 
-    if (earthWrapper) {
+    if (visualStage) {
 
-        let targetX = 0;
-        let targetY = 0;
-
-        let currentX = 0;
-        let currentY = 0;
-
-
-        document.addEventListener(
+        visualStage.addEventListener(
             "mousemove",
             (event) => {
 
-                targetX =
-                    (event.clientX /
-                        window.innerWidth - 0.5) * 7;
+                const rect =
+                    visualStage.getBoundingClientRect();
 
-                targetY =
-                    (event.clientY /
-                        window.innerHeight - 0.5) * 5;
+
+                const x =
+                    (event.clientX - rect.left)
+                    / rect.width;
+
+
+                const y =
+                    (event.clientY - rect.top)
+                    / rect.height;
+
+
+                const rotateY =
+                    (x - 0.5) * 5;
+
+
+                const rotateX =
+                    -(y - 0.5) * 4;
+
+
+                const card =
+                    document.querySelector(
+                        ".comparison-card"
+                    );
+
+
+                if (card) {
+
+                    card.style.transform =
+                        `
+                        perspective(1300px)
+                        rotateY(${rotateY}deg)
+                        rotateX(${rotateX}deg)
+                        translateY(-4px)
+                        `;
+                }
 
             }
         );
 
 
-        function animateEarth() {
+        visualStage.addEventListener(
+            "mouseleave",
+            () => {
 
-            currentX +=
-                (targetX - currentX) * 0.05;
-
-            currentY +=
-                (targetY - currentY) * 0.05;
-
-
-            earthWrapper.style.transform =
-                "rotateY(" +
-                currentX +
-                "deg) rotateX(" +
-                (-currentY) +
-                "deg)";
+                const card =
+                    document.querySelector(
+                        ".comparison-card"
+                    );
 
 
-            requestAnimationFrame(
-                animateEarth
-            );
-        }
+                if (card) {
 
+                    card.style.transform =
+                        `
+                        perspective(1300px)
+                        rotateY(-2deg)
+                        rotateX(1deg)
+                        `;
+                }
 
-        animateEarth();
+            }
+        );
+
     }
 
 });
